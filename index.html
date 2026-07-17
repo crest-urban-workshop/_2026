@@ -3,146 +3,254 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Workshop Name 2026</title> <!-- EDIT -->
+<title>CREST Urban Workshop 2026</title> <!-- EDIT -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --ink:#1a1a1a;
-    --muted:#666;
-    --line:#e2e2e2;
-    --accent:#7a1f1f;
-    --bg:#fdfdfc;
-    --pill-bg:#f4f2ef;
-  }
-  *{box-sizing:border-box;}
-  body{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-    color:var(--ink);
-    background:var(--bg);
-    line-height:1.6;
-    margin:0;
-    font-size:16px;
-  }
-  .wrap{max-width:760px;margin:0 auto;padding:3rem 1.5rem 4rem;}
+  /* ── Reset ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; scroll-behavior: smooth; }
 
-  /* ── HEADER ── */
-  .hero{display:flex;gap:1.75rem;align-items:flex-start;flex-wrap:wrap;}
-  .hero-img{width:190px;height:auto;border-radius:4px;flex-shrink:0;}
-  .hero-text{flex:1;min-width:240px;}
-  .workshop-title{font-size:1.9rem;font-weight:700;line-height:1.25;margin:0 0 .35rem;}
-  .workshop-sub{font-size:1.05rem;color:var(--muted);margin:0 0 .9rem;}
-  .meta-line{margin:.15rem 0;color:var(--ink);}
-  .meta-line strong{font-weight:600;}
-  .hero-links{margin-top:1rem;display:flex;gap:.6rem;flex-wrap:wrap;}
-  .pill{
-    display:inline-block;padding:.28rem .8rem;border:1px solid var(--line);
-    border-radius:999px;background:var(--pill-bg);color:var(--ink);
-    text-decoration:none;font-size:.85rem;transition:background .15s;
+  /* ── Tokens (from main.css) ── */
+  :root {
+    --crimson:     #8b1a1a;
+    --crimson-dk:  #5a0f0f;
+    --text:        #1a1a1a;
+    --muted:       #666;
+    --light:       #999;
+    --border:      #ddd;
+    --bg:          #fff;
+    --bg-alt:      #f9f9f7;
+    --font:        'Inter', 'Helvetica Neue', Arial, sans-serif;
+    --w:           680px;
   }
-  .pill:hover{background:#eae7e2;}
 
-  /* ── SECTIONS ── */
-  .section{margin-top:2.75rem;}
-  .section-title{
-    font-size:1.15rem;font-weight:700;letter-spacing:.02em;
-    padding-bottom:.4rem;border-bottom:2px solid var(--ink);margin:0 0 1.1rem;
+  /* ── Base ── */
+  body {
+    font-family: var(--font);
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
   }
-  p{margin:.6rem 0;}
-  a{color:var(--accent);}
-  a:hover{text-decoration:underline;}
 
-  /* ── PROGRAMME ── */
-  .prog-item{
-    display:flex;gap:1rem;padding:.65rem 0;border-bottom:1px solid var(--line);
+  /* ── Links ── */
+  a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-style: dashed;
+    text-decoration-color: var(--light);
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    transition: text-decoration-thickness .15s, text-underline-offset .15s;
   }
-  .prog-item:last-child{border-bottom:none;}
-  .prog-time{width:120px;flex-shrink:0;color:var(--muted);font-variant-numeric:tabular-nums;}
-  .prog-body{flex:1;}
-  .prog-talk{font-weight:600;}
-  .prog-speaker{color:var(--muted);font-size:.92rem;}
+  a:hover { text-decoration-thickness: 2px; text-underline-offset: 4px; }
 
-  /* ── INFO GRID ── */
-  .info-grid{display:grid;grid-template-columns:130px 1fr;gap:.4rem 1rem;}
-  .info-grid dt{font-weight:600;}
-  .info-grid dd{margin:0;}
+  /* ── Page ── */
+  #page { max-width: var(--w); margin: 0 auto; padding: 4rem 1.5rem 6rem; }
 
-  /* ── FOOTER ── */
-  .footer{
-    margin-top:3.5rem;padding-top:1.2rem;border-top:1px solid var(--line);
-    font-size:.85rem;color:var(--muted);
+  /* ── Header (adapted from .profile) ── */
+  .profile {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 2.25rem;
+    align-items: start;
+    margin-bottom: 3rem;
+  }
+  .profile-photo {
+    width: 200px;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    border: 1px solid var(--border);
+  }
+  .profile-photo-placeholder {
+    width: 200px;
+    height: 150px;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--border);
+    font-size: 2rem;
+  }
+  .workshop-name {
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: -.02em;
+    line-height: 1.2;
+    margin-bottom: .35rem;
+    color: var(--text);
+  }
+  .workshop-sub {
+    font-size: .9rem;
+    color: var(--muted);
+    margin-bottom: .9rem;
+  }
+  .meta-line {
+    font-size: .88rem;
+    margin-bottom: .12rem;
+    color: var(--text);
+  }
+  .meta-line strong { font-weight: 500; }
+  .header-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .3rem;
+    margin-top: 1rem;
+  }
+
+  /* ── Sections ── */
+  .section { margin-bottom: 2.75rem; }
+  .section-title {
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    border-bottom: 1.5px solid var(--crimson);
+    padding-bottom: .3rem;
+    margin-bottom: 1.35rem;
+  }
+  .section p { font-size: .9rem; line-height: 1.72; }
+
+  /* ── Pills ── */
+  .pill {
+    display: inline-block;
+    font-size: .65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    padding: .1rem .5rem;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    border-radius: 2px;
+    margin-right: .2rem;
+    text-decoration: none !important;
+    transition: color .12s, border-color .12s;
+  }
+  .pill:hover { color: var(--crimson); border-color: var(--crimson); }
+
+  /* ── Programme (adapted from .teaching-list) ── */
+  .prog-list { list-style: none; padding: 0; margin: 0; }
+  .prog-item {
+    display: flex;
+    gap: 1.1rem;
+    align-items: baseline;
+    flex-wrap: wrap;
+    padding: .65rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .prog-item:first-child { padding-top: 0; }
+  .prog-item:last-child  { border-bottom: none; }
+  .prog-time {
+    font-size: .78rem;
+    color: var(--light);
+    white-space: nowrap;
+    width: 110px;
+    flex-shrink: 0;
+    font-variant-numeric: tabular-nums;
+  }
+  .prog-talk { font-size: .9rem; font-weight: 500; color: var(--text); }
+  .prog-speaker { font-size: .79rem; color: var(--muted); margin-top: .05rem; }
+
+  /* ── Info grid (adapted from .misc) ── */
+  .info-grid {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: .35rem 1rem;
+    font-size: .9rem;
+    line-height: 1.72;
+  }
+  .info-grid dt { font-weight: 500; color: var(--text); }
+  .info-grid dd { margin: 0; color: var(--text); }
+
+  /* ── Footer ── */
+  .site-footer {
+    margin-top: 4rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border);
+    font-size: .73rem;
+    color: var(--light);
+    text-align: center;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 520px) {
+    .profile { grid-template-columns: 1fr; gap: 1.25rem; }
+    .profile-photo, .profile-photo-placeholder { width: 160px; }
+    #page { padding: 2.5rem 1.1rem 4rem; }
+    .prog-time { width: 100%; }
   }
 </style>
 </head>
 <body>
-<div class="wrap">
+<div id="page">
 
   <!-- ══ HEADER ══════════════════════════════ -->
-  <header class="hero">
-    <img class="hero-img" src="assets/workshop.jpg" alt="Workshop" /> <!-- EDIT: image path -->
-    <div class="hero-text">
-      <h1 class="workshop-title">Workshop Name</h1> <!-- EDIT -->
-      <p class="workshop-sub">A short one-line description of the workshop</p> <!-- EDIT -->
-      <p class="meta-line"><strong>Date</strong> &middot; 12 June 2026</p> <!-- EDIT -->
-      <p class="meta-line"><strong>Venue</strong> &middot; CREST, Ecole Polytechnique, Palaiseau</p> <!-- EDIT -->
-      <p class="meta-line"><strong>Organiser</strong> &middot; Matéo Moglia</p> <!-- EDIT -->
-      <div class="hero-links">
-        <a class="pill" href="assets/programme.pdf" target="_blank" rel="noopener">Programme (PDF)</a> <!-- EDIT: pdf path -->
+  <div class="profile">
+    <img class="profile-photo" src="assets/workshop.jpg" alt="Workshop" /> <!-- EDIT: image path -->
+    <div>
+      <h1 class="workshop-name">CREST Urban Workshop 2026</h1> <!-- EDIT -->
+      <p class="workshop-sub"></p> <!-- EDIT -->
+      <p class="meta-line"><strong>Date</strong> &middot; 10-11 December 2026</p> <!-- EDIT -->
+      <p class="meta-line"><strong>Venue</strong> &middot; CREST, ENSAE</p> <!-- EDIT -->
+      <p class="meta-line"><strong>Organiser</strong> &middot; Immanuel Feld (Warwick), Matéo Moglia (CREST)</p> <!-- EDIT -->
+      <div class="header-links">
+        <a class="pill" href="assets/programme.pdf" target="_blank" rel="noopener">Programme PDF</a> <!-- EDIT: pdf path -->
+        <a class="pill" href="assets/cfp.pdf" target="_blank" rel="noopener">Call for Paper</a>
         <a class="pill" href="mailto:mateo.moglia@gmail.com">Contact</a>
       </div>
     </div>
-  </header>
+  </div>
 
   <!-- ══ ABOUT ═══════════════════════════════ -->
   <div class="section">
     <h2 class="section-title">About</h2>
     <p>
-      Two or three sentences describing the scope and aims of the workshop, who
-      it is for, and what participants can expect. <!-- EDIT -->
+      Join us for the second edition of the <b>Urban and Spatial PhD Workshop</b>. This event aims to gather young minds (PhD students) in urban economics and related fields. The workshop is organized around 8 presentations of 30' each, followed by an informal discussion by a fellow presenter and audience Q&A. A keynote lecture will be given by TBA. <br><br>
+
+      Apply before <b>October 1st 2026</b> (<a href="assets/cfp.pdf" target="_blank" rel="noopener">call for paper</a>) and spread the word!<br><br>
+
+      We acnowledge the generous funding and support from CREST, ENSAE, and ANR. 
     </p>
   </div>
 
   <!-- ══ PROGRAMME ═══════════════════════════ -->
   <div class="section">
     <h2 class="section-title">Programme</h2>
+    <ul class="prog-list">
 
-    <div class="prog-item"> <!-- EDIT block, duplicate as needed -->
-      <div class="prog-time">09:30 – 10:15</div>
-      <div class="prog-body">
-        <div class="prog-talk">Title of the talk</div>
-        <div class="prog-speaker">Speaker Name (Affiliation)</div>
-      </div>
-    </div>
+      <li class="prog-item"> <!-- EDIT block, duplicate as needed -->
+        <div class="prog-time">09:30 – 17:00</div>
+        <div>
+          <div class="prog-talk">First day</div>
+          <div class="prog-speaker">Room (TBA)</div>
+        </div>
+      </li>
 
-    <div class="prog-item">
-      <div class="prog-time">10:15 – 11:00</div>
-      <div class="prog-body">
-        <div class="prog-talk">Title of the talk</div>
-        <div class="prog-speaker">Speaker Name (Affiliation)</div>
-      </div>
-    </div>
+      <li class="prog-item"> <!-- EDIT block, duplicate as needed -->
+        <div class="prog-time">09:30 – 15:00</div>
+        <div>
+          <div class="prog-talk">Second day</div>
+          <div class="prog-speaker">Room (TBA)</div>
+        </div>
+      </li>
 
-    <div class="prog-item">
-      <div class="prog-time">11:00 – 11:30</div>
-      <div class="prog-body">
-        <div class="prog-talk">Coffee break</div>
-      </div>
-    </div>
-
+    </ul>
   </div>
 
   <!-- ══ PRACTICAL INFO ══════════════════════ -->
   <div class="section">
     <h2 class="section-title">Practical Information</h2>
     <dl class="info-grid">
-      <dt>Location</dt><dd>Room, Building, Full address</dd> <!-- EDIT -->
-      <dt>Access</dt><dd>RER B to Massy-Palaiseau, then bus 91-06</dd> <!-- EDIT -->
-      <dt>Registration</dt><dd><a href="#">Registration link</a> (free, required)</dd> <!-- EDIT -->
+      <dt>Location</dt><dd>Room TBA, ENSAE building, Avenue Henry le Chatellier 91110 Palaiseau</dd> <!-- EDIT -->
+      <dt>Access</dt><dd>RER B to Massy-Palaiseau, then metro 18 to Ecole Polytechnique</dd> <!-- EDIT -->
     </dl>
   </div>
-
-  <!-- ══ FOOTER ══════════════════════════════ -->
-  <footer class="footer">
-    Organised by Matéo Moglia &middot; CREST – Ecole Polytechnique &middot; 2026 <!-- EDIT -->
-  </footer>
 
 </div>
 </body>
