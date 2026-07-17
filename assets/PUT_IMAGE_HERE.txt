@@ -1,0 +1,1 @@
+Put your workshop image here and name it workshop.jpg (or edit the path in index.html).
