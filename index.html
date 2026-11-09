@@ -156,6 +156,38 @@
   }
   .prog-talk { font-size: .9rem; font-weight: 500; color: var(--text); }
   .prog-speaker { font-size: .79rem; color: var(--muted); margin-top: .05rem; }
+  /* Programme as a two-column table: time | session + papers */
+  .prog-table { }
+  .prog-row {
+    display: grid;
+    grid-template-columns: minmax(6.5rem, 8.5rem) 1fr;
+    border-bottom: 1px solid var(--border);
+  }
+  .prog-row:last-child { border-bottom: none; }
+  .prog-row.prog-day {
+    display: block;
+    border-bottom: none;
+    padding: 1.6rem 0 .5rem;
+    font-size: .95rem;
+    font-weight: 600;
+    color: var(--crimson);
+  }
+  .prog-row.prog-day:first-child { padding-top: 0; }
+  .prog-cell-time {
+    padding: .65rem .9rem .65rem 0;
+    font-size: clamp(.74rem, .6vw + .6rem, .82rem);
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .prog-cell-main {
+    padding: .65rem 0 .65rem 1rem;
+    font-size: clamp(.8rem, .6vw + .6rem, .86rem);
+    line-height: 1.55;
+    color: #000;
+  }
+  .prog-cell-main .prog-name { font-weight: 600; margin-bottom: .2rem; }
+  .prog-papers { margin: 0; padding-left: 0; list-style: none; }
+  .prog-papers li { padding-left: 0; }
 
   /* ── Info grid (adapted from .misc) ── */
   .info-grid {
@@ -198,7 +230,7 @@
       <p class="workshop-sub"></p> <!-- EDIT -->
       <p class="meta-line"><strong>Date</strong> &middot; 10-11 December, 2026</p> <!-- EDIT -->
       <p class="meta-line"><strong>Venue</strong> &middot; CREST, ENSAE</p> <!-- EDIT -->
-      <p class="meta-line"><strong>Organisers</strong> &middot; <a href="https://immanuelfeld.github.io" target="_blank" rel="noopener">Immanuel Feld</a>  (Warwick, FAU Erlangen Nümberg), <a href="https://mateomoglia.github.io" target="_blank" rel="noopener">Matéo Moglia</a> (CREST)</p> <!-- EDIT -->
+      <p class="meta-line"><strong>Organisers</strong> &middot; <a href="https://immanuelfeld.github.io" target="_blank" rel="noopener">Immanuel Feld</a>  (Warwick, FAU Erlangen-Nürnberg), <a href="https://mateomoglia.github.io" target="_blank" rel="noopener">Matéo Moglia</a> (CREST)</p> <!-- EDIT -->
       <div class="header-links">
         <a class="pill" href="assets/programme.pdf" target="_blank" rel="noopener">Programme PDF</a> <!-- EDIT: pdf path -->
         <a class="pill" href="assets/cfp.pdf" target="_blank" rel="noopener">Call for Paper</a>
@@ -211,36 +243,131 @@
   <div class="section">
     <h2 class="section-title">About</h2>
     <p>
-      Join us for the second edition of the <b>Urban and Spatial PhD Workshop</b>. This event aims to gather young minds (PhD students or postdocs) in urban economics and related fields. The workshop is organized around 8 presentations of 30' each, followed by an informal discussion by a fellow presenter and audience Q&A. We are delighted to have <a href="https://sites.google.com/view/gabrielloumeau/accueil" target="_blank" rel="noopener">Gabriel Loumeau</a> (University of Neuchâtel, CESifo, and CEPR) as our keynote speaker. <br><br>
+      Join us for the second edition of the <b>Urban and Spatial PhD Workshop</b>. This event aims to gather young minds (PhD students or postdocs) in urban economics and related fields. The workshop is organized around 14 presentations, followed by an informal discussion by a fellow presenter and audience Q&A. We are delighted to have <a href="https://sites.google.com/view/gabrielloumeau/accueil" target="_blank" rel="noopener">Gabriel Loumeau</a> (University of Neuchâtel, CESifo, and CEPR) as our keynote speaker. <br><br>
 
-      Apply before <b>October 1st 2026</b> (<a href="assets/cfp.pdf" target="_blank" rel="noopener">call for paper</a>) and spread the word!<br><br>
+      Participation is free of charge but <b>registration is mandatory</b>. If you are interested to join, please fill <a href="https://evento.renater.fr/survey/public-2026-crest-urban-economics-workshop-btaaeg9d" target="_blank" rel="noopener">this survey</a> before December 1st, 2026. 
 
-      We acknowledge the generous funding and support from CREST, ENSAE, and the ANR EUR grant.
+      We acknowledge the generous funding and support from EUR Data EFM, CREST and ENSAE.
     </p>
   </div>
 
   <!-- ══ PROGRAMME ═══════════════════════════ -->
   <div class="section">
     <h2 class="section-title">Programme</h2>
-    <ul class="prog-list">
-
-      <li class="prog-item"> <!-- EDIT block, duplicate as needed -->
-        <div class="prog-time">14:00 – 18:00</div>
-        <div>
-          <div class="prog-talk">First day (Dec. 10)</div>
-          <div class="prog-speaker">Room (TBA)</div>
+    <div class="prog-table">
+      <div class="prog-row prog-day">Thursday, December 10, 2026</div>
+      <div class="prog-row">
+        <div class="prog-cell-time">12:30 – 13:30</div>
+        <div class="prog-cell-main">
+          <div class="prog-name">Light lunch and registration (ENSAE Hall)</div>
         </div>
-      </li>
-
-      <li class="prog-item"> <!-- EDIT block, duplicate as needed -->
-        <div class="prog-time">09:30 – 15:30</div>
-        <div>
-          <div class="prog-talk">Second day (Dec. 11)</div>
-          <div class="prog-speaker">Room (TBA)</div>
+      </div>
+      <div class="prog-row">
+        <div class="prog-cell-time">13:30 – 15:10</div>
+        <div class="prog-cell-main">
+          <div class="prog-name">Session 1 (Room 2041)</div>
+          <ul class="prog-papers">
+            <li><a href="https://sites.google.com/view/ninaglaeser/about-me" target="_blank" rel="noopener">Nina Glaeser</a> (IAB), Skill sorting, gentrification, and the labor market</li>
+            <li><a href="https://rekudashev.github.io" target="_blank" rel="noopener">Raian Kudashev</a> (Luxembourg), Welfare effects of congestion in Luxembourg and the Greater Region</li>
+            <li><a href="https://www.ritm.universite-paris-saclay.fr/profil/simon.reyburn/" target="_blank" rel="noopener">Simon Reyburn</a> (Paris Saclay), Climate change, migration and human capital: Evidence from Indonesia</li>
+          </ul>
         </div>
-      </li>
-
-    </ul>
+      </div>
+      <div class="prog-row">
+        <div class="prog-cell-time">15:10 – 15:30</div>
+        <div class="prog-cell-main">
+          <div class="prog-name">Coffee break (ENSAE Hall)</div>
+        </div>
+      </div>
+      <div class="prog-row">
+        <div class="prog-cell-time">15:30 – 17:10</div>
+        <div class="prog-cell-main">
+          <div class="prog-name">Session 2 (Room 2041)</div>
+          <ul class="prog-papers">
+            <li><a href="https://www.parisschoolofeconomics.eu/personnes/eva-gossiaux/" target="_blank" rel="noopener">Eva Gossiaux</a> (PSE), The economics of land artificialization</li>
+            <li><a href="https://www.lse.ac.uk/people/yuki-kanayama" target="_blank" rel="noopener">Yuki Kanayama</a> (LSE), Lot shape matters a lot</li>
+            <li><a href="https://www.uni.lu/fdef-en/people/sebastian-dobre/" target="_blank" rel="noopener">Sebastian Dobre</a> (Luxembourg), Intergenerational ties and urban structure</li>
+          </ul>
+        </div>
+      </div>
+      <div class="prog-row">
+        <div class="prog-cell-time">17:20 – 18:30</div>
+        <div class="prog-cell-main">
+          <div class="prog-name">Keynote lecture: <a href="https://sites.google.com/view/gabrielloumeau/accueil" target="_blank" rel="noopener">Gabriel Loumeau</a> (Neuchâtel and CEPR) (Room 2041)</div>
+        </div>
+      </div>
+      <div class="prog-row">
+        <div class="prog-cell-time">21:00</div>
+        <div class="prog-cell-main">
+          <div class="prog-name">Restaurant (invitation only)</div>
+        </div>
+      </div>
+      <div class="prog-row prog-day">Friday, December 11, 2026</div>
+      <div class="prog-row">
+        <div class="prog-cell-time">10:00 – 11:10</div>
+        <div class="prog-cell-main">
+          <div class="prog-name">Session 3 (Room 2041)</div>
+          <ul class="prog-papers">
+            <li><a href="https://warwick.ac.uk/fac/soc/economics/staff/jbrinkmann" target="_blank" rel="noopener">Johannes Brinkmann</a> (Warwick), Fare enough? The labour market effects of subsidising public transport fares</li>
+            <li><a href="https://www.hec.edu/fr/faculty-research/faculty-directory/faculty-member/arcizet-laure" target="_blank" rel="noopener">Laure Arcizet</a> (HEC Paris), The labour market implications of public housing policies: Evidence from Paris</li>
+          </ul>
+        </div>
+      </div>
+      <div class="prog-row">
+        <div class="prog-cell-time">11:10 – 11:30</div>
+        <div class="prog-cell-main">
+          <div class="prog-name">Coffee break (ENSAE Hall)</div>
+        </div>
+      </div>
+      <div class="prog-row">
+        <div class="prog-cell-time">11:30 – 12:50</div>
+        <div class="prog-cell-main">
+          <div class="prog-name">Session 4 (Room 2041)</div>
+          <ul class="prog-papers">
+            <li><a href="https://dehua-li.github.io" target="_blank" rel="noopener">Li Dehua</a> (Glasgow), Building for promotion: Local political incentives and structural change in China</li>
+            <li><a href="https://sites.google.com/view/francoislafont11" target="_blank" rel="noopener">François Lafont</a> (INRAE), Local opposition and housing supply</li>
+          </ul>
+        </div>
+      </div>
+      <div class="prog-row">
+        <div class="prog-cell-time">12:50 – 14:00</div>
+        <div class="prog-cell-main">
+          <div class="prog-name">Lunch (ENSAE Hall)</div>
+        </div>
+      </div>
+      <div class="prog-row">
+        <div class="prog-cell-time">14:00 – 15:10</div>
+        <div class="prog-cell-main">
+          <div class="prog-name">Session 5 (Room 2041)</div>
+          <ul class="prog-papers">
+            <li><a href="https://sophiebandarkar.com" target="_blank" rel="noopener">Sophie Bandarkar</a> (Sciences Po), The exception of social housing</li>
+            <li><a href="https://oleksiihamaniuk.org" target="_blank" rel="noopener">Oleksii Hamaniuk</a> (Bonn), Does greening lead to gentrification? Evidence from the restaurant sector in Berlin</li>
+          </ul>
+        </div>
+      </div>
+      <div class="prog-row">
+        <div class="prog-cell-time">15:10 – 15:30</div>
+        <div class="prog-cell-main">
+          <div class="prog-name">Coffee break (ENSAE Hall)</div>
+        </div>
+      </div>
+      <div class="prog-row">
+        <div class="prog-cell-time">15:30 – 16:40</div>
+        <div class="prog-cell-main">
+          <div class="prog-name">Session 6 (Room 2041)</div>
+          <ul class="prog-papers">
+            <li><a href="https://mateomoglia.github.io" target="_blank" rel="noopener">Matéo Moglia</a> (CREST), The hidden costs of urban renewal</li>
+            <li><a href="https://www.hertie-school.org/en/who-we-are/profile/person/ackery" target="_blank" rel="noopener">Evie Ackery</a> (Hertie School), The hidden geography of cities after dark</li>
+          </ul>
+        </div>
+      </div>
+      <div class="prog-row">
+        <div class="prog-cell-time">18:00</div>
+        <div class="prog-cell-main">
+          <div class="prog-name">Informal drinks (TBD in Paris)</div>
+        </div>
+      </div>
+    </div>
   </div>
 
 <!-- ══ PROGRAMME ═══════════════════════════ -->
@@ -262,8 +389,9 @@
   <div class="section">
     <h2 class="section-title">Practical Information</h2>
     <dl class="info-grid">
-      <dt>Location</dt><dd>Room TBA, ENSAE building, Avenue Henry le Chatellier 91110 Palaiseau</dd> <!-- EDIT -->
-      <dt>Access</dt><dd>From Massy-Palaiseau: metro 18 to Ecole Polytechnique</dd> <!-- EDIT -->
+      <dt>Location</dt><dd>Room 2041, ENSAE building, Avenue Henry le Chatelier 91110 Palaiseau</dd> <!-- EDIT -->
+      <dt>Access</dt><dd>RER B to Lozère or bus 4606 to Polytechnique-Lozère</dd> <!-- EDIT -->
+      <dt>Security</dt><dd>Only registered guests and presenters are allowed to access ENSAE building. Please bring an ID.</dd> <!-- EDIT -->
     </dl>
   </div>
 
